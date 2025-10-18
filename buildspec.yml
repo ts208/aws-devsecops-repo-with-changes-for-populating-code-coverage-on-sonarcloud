@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - snyk auth $SNYK_TOKEN
-      - snyk test || {echo  "Snyk scan failed"; exit 1}
+      - snyk test || { echo  "Snyk scan failed"; exit 1; }
       - mvn verify sonar:sonar -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.organization=$SONAR_PROJECT_KEY -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$SONAR_TOKEN
       - sleep 5
       - |
